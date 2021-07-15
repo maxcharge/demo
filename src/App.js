@@ -1,10 +1,16 @@
 import './App.css';
 import React, { Suspense } from 'react';
-import Client from './L2/Index';
+//import Client from './L2/Index';
 import { Route, Switch } from 'react-router-dom';
-//const Amazon = React.lazy(() => import('./L2/Index'));
+let clientName = "amazon";
+clientName =window.location.pathname === '/shopclues'
+	? "shopclues"
+	: "amazon"
+
+  const Client = React.lazy(() => import(`./L2/MyComponent/${clientName}/MyComponent`));
 
 function App() {
+	console.log(Client);
 	return (
 		<div className="App">
 			<Switch>
